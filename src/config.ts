@@ -10,6 +10,8 @@ export const LINKS = {
   android: 'https://github.com/razachaudhary5512-a11y/smart-radar/releases/latest/download/BeAlert.apk',
   /** True once `android` points to Google Play (changes the button wording). */
   androidOnPlay: false,
+  /** Owner / admin management console (inside the web app). */
+  ownerConsole: 'https://razachaudhary5512-a11y.github.io/smart-radar/admin/dashboard',
   privacy: 'https://razachaudhary5512-a11y.github.io/smart-radar/privacy',
   terms: 'https://razachaudhary5512-a11y.github.io/smart-radar/terms',
 } as const;

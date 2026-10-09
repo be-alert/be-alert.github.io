@@ -30,7 +30,7 @@ export function FinalCta() {
 
 const COLS: [string, [string, string][]][] = [
   ['Product', [['Why Be Alert', '#why'], ['Tour', '#tour'], ['Categories', '#categories'], ['Safety', '#safety'], ['FAQ', '#faq']]],
-  ['Get Be Alert', [['Android app', LINKS.android], ['Web app', LINKS.webApp]]],
+  ['Get Be Alert', [['Android app', LINKS.android], ['Web app', LINKS.webApp], ['Owner Console', LINKS.ownerConsole]]],
   ['Legal', [['Privacy Policy', LINKS.privacy], ['Terms of Use', LINKS.terms]]],
 ];
 
