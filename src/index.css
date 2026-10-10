@@ -161,6 +161,15 @@ html:not(.motion-ready) [class*='animate-']:not(.animate-pop):not(.animate-rise)
   animation-play-state: paused;
 }
 
+/* Sections below the first screen skip style, layout and paint until they're scrolled near,
+   so a phone draws the hero without first laying out the whole page. 'auto' remembers each
+   section's real size once rendered, keeping anchor links and the scrollbar accurate. */
+main > section:not(#top),
+#root > footer {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 1100px;
+}
+
 /* FAQ: smooth open/close */
 .faq-body {
   display: grid;
