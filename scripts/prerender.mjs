@@ -17,6 +17,9 @@ const link = out.match(/<link rel="stylesheet"[^>]*href="\.\/(assets\/[^"]+\.css
 if (!link) throw new Error('stylesheet link not found in dist/index.html');
 const css = readFileSync(resolve('dist', link[1]), 'utf8').replace(/url\(\.\.\//g, 'url(./');
 out = out.replace(link[0], () => `<style>${css}</style>`);
+// The page is fully drawn without JavaScript; the script only adds interactivity, so it must not
+// compete with the first paint for bandwidth.
+out = out.replace('<script type="module" crossorigin', '<script type="module" fetchpriority="low" crossorigin');
 writeFileSync(file, out);
 
 writeFileSync(
