@@ -13,8 +13,8 @@ export default {
         mint: { 400: '#4ade9b', 500: '#22c97e' },
       },
       fontFamily: {
-        sans: ['"Plus Jakarta Sans"', 'Inter', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
-        serif: ['"Instrument Serif"', 'Georgia', 'serif'],
+        sans: ['"Plus Jakarta Sans"', '"Jakarta Fallback"', 'system-ui', '-apple-system', 'Segoe UI', 'sans-serif'],
+        serif: ['"Instrument Serif"', '"Instrument Fallback"', 'Georgia', 'serif'],
         urdu: ['"Noto Nastaliq Urdu"', 'serif'],
       },
       fontSize: {

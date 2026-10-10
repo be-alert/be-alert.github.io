@@ -129,7 +129,7 @@ export function Heading({ kicker, title, lead, center, className }: { kicker: st
         <span className="h-1.5 w-1.5 rounded-full bg-radar-400" /> {kicker}
       </span>
       <h2 className="mt-6 text-balance text-title font-bold">{title}</h2>
-      {lead && <p className={cn('mt-6 text-pretty text-lg leading-relaxed text-white/60', center && 'mx-auto max-w-2xl')}>{lead}</p>}
+      {lead && <p className={cn('mt-6 text-lg leading-relaxed text-white/60', center && 'mx-auto max-w-2xl')}>{lead}</p>}
     </Reveal>
   );
 }

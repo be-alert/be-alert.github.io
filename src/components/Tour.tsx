@@ -125,7 +125,7 @@ export function Tour() {
                   className={cn(
                     'flex w-[84%] max-w-[420px] shrink-0 snap-center flex-col rounded-[28px] border border-white/[0.08] bg-white/[0.025] p-6 transition-opacity duration-500',
                     'lg:w-auto lg:max-w-none lg:min-h-[76vh] lg:justify-center lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0',
-                    active === i ? 'lg:opacity-100' : 'lg:opacity-30',
+                    active === i ? 'lg:opacity-100' : 'lg:opacity-[0.78]',
                   )}
                 >
                   <div className="mx-auto mb-7 w-[190px] lg:hidden">
@@ -136,7 +136,7 @@ export function Tour() {
                     {s.tag}
                   </p>
                   <h3 className="mt-4 text-balance text-[1.7rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-4xl lg:mt-5 lg:text-5xl">{s.title}</h3>
-                  <p className="mt-4 max-w-lg text-pretty leading-relaxed text-white/60 lg:mt-5 lg:text-lg">{s.body}</p>
+                  <p className="mt-4 max-w-lg leading-relaxed text-white/60 lg:mt-5 lg:text-lg">{s.body}</p>
                   <ul className="mt-5 space-y-3 lg:mt-7">
                     {s.points.map((p) => (
                       <li key={p} className="flex items-center gap-3 text-[15px] font-medium text-white/80">

@@ -38,7 +38,7 @@ export function Hero() {
           Know what’s happening <span className="accent grad-text animate-shine pr-1">around you.</span>
         </h1>
 
-        <p className="mx-auto mt-7 max-w-2xl animate-rise text-pretty text-[17px] leading-relaxed text-white/60 [animation-delay:160ms] sm:text-lg">
+        <p className="mx-auto mt-7 max-w-2xl animate-rise text-[17px] leading-relaxed text-white/60 [animation-delay:160ms] sm:text-lg">
           The moment it happens. Be Alert is your neighbourhood’s live radar — urgent alerts, blood requests, outages, traffic, jobs, rentals and trusted local services, all within{' '}
           <span className="font-semibold text-white">1 to 50 km</span> of wherever you are.
         </p>
@@ -46,7 +46,8 @@ export function Hero() {
         <GetButtons center className="mt-9 animate-pop [animation-delay:240ms]" />
 
         <p className="mt-6 animate-pop text-sm text-white/60 [animation-delay:320ms]">
-          <span lang="ur" dir="rtl" className="font-urdu text-[15px] text-white/60">
+          {/* fixed-height box: Nastaliq is very tall, and its late arrival must not push the page down */}
+          <span lang="ur" dir="rtl" className="inline-block h-7 overflow-visible align-middle font-urdu text-[15px] leading-7 text-white/60">
             اپنے آس پاس کی ہر خبر
           </span>
           <span className="mx-2.5">·</span>every update from around you
