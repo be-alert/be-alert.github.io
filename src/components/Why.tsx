@@ -64,7 +64,7 @@ export function Why() {
               </span>
               <div className="min-w-0 flex-1">
                 <p className="font-bold">Mohalla Group 🏘️</p>
-                <p className="text-xs text-white/40">247 members · 999+ unread</p>
+                <p className="text-xs text-white/60">247 members · 999+ unread</p>
               </div>
               <BellOff className="h-5 w-5 text-white/30" />
             </div>

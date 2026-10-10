@@ -27,14 +27,14 @@ const STEPS = [
   {
     tag: 'Emergency',
     title: 'Emergency, without searching.',
-    body: 'Rescue 1122, Police 15, Edhi 115 and Fire 16 are one tap away. Send your live GPS location to the people you trust.',
+    body: 'Rescue 1122, Police 15, Edhi 115 and Fire 16 are one tap away. Send your current GPS location to the people you trust.',
     points: ['Works even before you sign in', 'Live location by WhatsApp or SMS', 'Urgent alerts within 5 km'],
     src: './screens/emergency-dark.webp',
   },
   {
     tag: 'Post',
     title: 'Post in under a minute.',
-    body: 'Choose a category, add details and photos. Your post lands on the map and reaches neighbours instantly — on Android and the web.',
+    body: 'Choose a category, add details and photos. Your post lands on the map and reaches neighbours within a minute — on Android and the web.',
     points: ['14 local categories', 'Photos and smart fields', 'Edit, close or delete anytime'],
     src: './screens/create-dark.webp',
   },

@@ -45,7 +45,7 @@ export function Hero() {
 
         <GetButtons center className="mt-9 animate-pop [animation-delay:240ms]" />
 
-        <p className="mt-6 animate-pop text-sm text-white/40 [animation-delay:320ms]">
+        <p className="mt-6 animate-pop text-sm text-white/60 [animation-delay:320ms]">
           <span lang="ur" dir="rtl" className="font-urdu text-[15px] text-white/60">
             اپنے آس پاس کی ہر خبر
           </span>

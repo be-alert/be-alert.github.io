@@ -3,7 +3,7 @@ import { BrowserFrame, Heading, Phone, Reveal } from './ui';
 
 const POINTS = [
   { icon: UserRound, title: 'One account', body: 'Sign in with the same email — your profile, posts and saved items are identical everywhere.' },
-  { icon: RefreshCw, title: 'Always in sync', body: 'Post from your phone and it’s on the web app instantly. And the other way round.' },
+  { icon: RefreshCw, title: 'Always in sync', body: 'Post from your phone and it’s on the web app within a minute. And the other way round.' },
   { icon: Smartphone, title: 'Built for your phone', body: 'The Android app uses your GPS and opens straight to your area.' },
   { icon: Globe, title: 'Nothing to install on a laptop', body: 'Open the web app in Chrome, Edge, Safari or Firefox.' },
 ];

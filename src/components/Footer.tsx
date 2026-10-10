@@ -62,7 +62,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="wrap mt-16 flex flex-col items-start justify-between gap-3 border-t border-white/[0.07] py-7 text-[13px] text-white/40 sm:flex-row sm:items-center">
+      <div className="wrap mt-16 flex flex-col items-start justify-between gap-3 border-t border-white/[0.07] py-7 text-[13px] text-white/60 sm:flex-row sm:items-center">
         <p>© {new Date().getFullYear()} Be Alert. Made in Pakistan.</p>
         <p>In an emergency, always call 1122 or your local emergency number first.</p>
       </div>

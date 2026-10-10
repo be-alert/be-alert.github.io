@@ -103,12 +103,12 @@ export function EmergencySpotlight() {
                 When seconds matter, <span className="accent text-alert-300">it’s one tap.</span>
               </h2>
               <p className="mt-6 max-w-xl text-lg leading-relaxed text-white/60">
-                Every emergency number in one place, your trusted contacts, and your live GPS location ready to send — exactly where you are, not a guess.
+                Every emergency number in one place, your trusted contacts, and your current GPS location ready to send — exactly where you are, not a guess.
               </p>
               <ul className="mt-8 grid gap-3 text-[15px] font-medium text-white/80 sm:grid-cols-2">
                 {[
                   [Phone, 'Call 1122, 15, 115 or 16 instantly'],
-                  [Share2, 'Share live location on WhatsApp'],
+                  [Share2, 'Share your location on WhatsApp'],
                   [UserRoundCheck, 'Your trusted contacts, saved'],
                   [Sparkles, 'Urgent alerts within 5 km'],
                 ].map(([I, t]) => {
