@@ -4,7 +4,7 @@ import { Heading, Reveal } from './ui';
 
 const PRIVACY: { icon: LucideIcon; title: string; body: string }[] = [
   { icon: EyeOff, title: 'No ads. No data selling.', body: 'There are no advertisers. Your information is only used to run the app.' },
-  { icon: KeyRound, title: 'Sign in your way', body: 'Use a password, or a one-time 6-digit code sent to your email — no password needed.' },
+  { icon: KeyRound, title: 'Sign in your way', body: 'Continue with Google, use a password, or get a one-time 6-digit code by email.' },
   { icon: Lock, title: 'Private by default', body: 'Your email and verification details are never shown to anyone.' },
   { icon: MapPinned, title: 'Your location, your call', body: 'Used on your device to show what’s near you. Shared only when you choose.' },
   { icon: ShieldCheck, title: 'Locked-down database', body: 'Encrypted connections and strict access rules on every single table.' },
