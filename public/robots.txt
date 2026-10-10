@@ -1,2 +1,4 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://razachaudhary5512-a11y.github.io/sitemap.xml

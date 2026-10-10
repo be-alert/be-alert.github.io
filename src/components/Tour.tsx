@@ -28,7 +28,7 @@ const STEPS = [
     tag: 'Emergency',
     title: 'Emergency, without searching.',
     body: 'Rescue 1122, Police 15, Edhi 115 and Fire 16 are one tap away. Send your current GPS location to the people you trust.',
-    points: ['Works even before you sign in', 'Live location by WhatsApp or SMS', 'Urgent alerts within 5 km'],
+    points: ['Works even before you sign in', 'Share your location by WhatsApp or SMS', 'Urgent alerts within 5 km'],
     src: './screens/emergency-dark.webp',
   },
   {
@@ -42,19 +42,32 @@ const STEPS = [
 
 export function Tour() {
   const [active, setActive] = useState(0);
+  const [slide, setSlide] = useState(0); // phones: which card of the swipe carousel is showing
   const refs = useRef<(HTMLDivElement | null)[]>([]);
+  const track = useRef<HTMLDivElement>(null);
+
+  function onSwipe() {
+    const el = track.current;
+    const first = refs.current[0];
+    if (!el || !first) return;
+    setSlide(Math.min(STEPS.length - 1, Math.round(el.scrollLeft / (first.offsetWidth + 16))));
+  }
+
+  function goTo(i: number) {
+    const el = refs.current[i];
+    track.current?.scrollTo({ left: el ? el.offsetLeft - (track.current.offsetWidth - el.offsetWidth) / 2 : 0, behavior: 'smooth' });
+  }
 
   useEffect(() => {
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => e.isIntersecting && setActive(Number((e.target as HTMLElement).dataset.i))),
-      { rootMargin: '-45% 0px -45% 0px' }
-    );
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => e.isIntersecting && setActive(Number((e.target as HTMLElement).dataset.i))), {
+      rootMargin: '-45% 0px -45% 0px',
+    });
     refs.current.forEach((el) => el && io.observe(el));
     return () => io.disconnect();
   }, []);
 
   return (
-    <section id="tour" className="relative py-24 sm:py-32">
+    <section id="tour" className="relative py-16 sm:py-24 lg:py-32">
       <div className="pointer-events-none absolute left-0 top-1/3 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-[radial-gradient(closest-side,rgb(79_116_255/0.18),transparent)]" />
       <div className="wrap relative">
         <Heading
@@ -64,7 +77,7 @@ export function Tour() {
               Designed to be <span className="accent grad-text">fast, clear</span> and calm.
             </>
           }
-          lead="Real screens from the Be Alert app. Scroll through the five things you’ll use every day."
+          lead="Real screens from the Be Alert app — the five things you’ll use every day."
         />
 
         <div className="mt-16 grid gap-10 lg:mt-24 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:gap-20">
@@ -76,7 +89,11 @@ export function Tour() {
                 {STEPS.map((s, i) => (
                   <div
                     key={s.tag}
-                    className={cn('transition-all duration-700 ease-out', i === 0 ? 'relative' : 'absolute inset-0', i === active ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0')}
+                    className={cn(
+                      'transition-all duration-700 ease-out',
+                      i === 0 ? 'relative' : 'absolute inset-0',
+                      i === active ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-4 opacity-0',
+                    )}
                   >
                     <Phone src={s.src} alt={s.title} />
                   </div>
@@ -91,36 +108,63 @@ export function Tour() {
             </div>
           </div>
 
-          {/* Steps */}
-          <div>
-            {STEPS.map((s, i) => (
-              <div
-                key={s.tag}
-                data-i={i}
-                ref={(el) => (refs.current[i] = el)}
-                className={cn('flex flex-col justify-center py-10 transition-opacity duration-500 lg:min-h-[76vh] lg:py-0', active === i ? 'lg:opacity-100' : 'lg:opacity-30')}
-              >
-                <div className="mx-auto mb-10 w-[250px] lg:hidden">
-                  <Phone src={s.src} alt={s.title} />
+          {/* Steps: a swipe carousel on phones and tablets, a scrolling story beside the sticky phone on desktop */}
+          {/* min-w-0: a grid item otherwise grows to fit the wide swipe track and the page scrolls sideways */}
+          <div className="min-w-0">
+            <div
+              ref={track}
+              onScroll={onSwipe}
+              className="no-scrollbar -mx-5 flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-2 sm:-mx-8 sm:px-8 lg:mx-0 lg:block lg:overflow-visible lg:px-0 lg:pb-0"
+            >
+              {STEPS.map((s, i) => (
+                <div
+                  key={s.tag}
+                  data-i={i}
+                  ref={(el) => (refs.current[i] = el)}
+                  aria-label={`${i + 1} of ${STEPS.length}: ${s.tag}`}
+                  className={cn(
+                    'flex w-[84%] max-w-[420px] shrink-0 snap-center flex-col rounded-[28px] border border-white/[0.08] bg-white/[0.025] p-6 transition-opacity duration-500',
+                    'lg:w-auto lg:max-w-none lg:min-h-[76vh] lg:justify-center lg:rounded-none lg:border-0 lg:bg-transparent lg:p-0',
+                    active === i ? 'lg:opacity-100' : 'lg:opacity-30',
+                  )}
+                >
+                  <div className="mx-auto mb-7 w-[190px] lg:hidden">
+                    <Phone src={s.src} alt={s.title} />
+                  </div>
+                  <p className="flex items-center gap-3 text-sm font-bold text-radar-300">
+                    <span className="flex h-7 w-7 items-center justify-center rounded-full border border-radar-400/40 text-xs">{i + 1}</span>
+                    {s.tag}
+                  </p>
+                  <h3 className="mt-4 text-balance text-[1.7rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-4xl lg:mt-5 lg:text-5xl">{s.title}</h3>
+                  <p className="mt-4 max-w-lg text-pretty leading-relaxed text-white/60 lg:mt-5 lg:text-lg">{s.body}</p>
+                  <ul className="mt-5 space-y-3 lg:mt-7">
+                    {s.points.map((p) => (
+                      <li key={p} className="flex items-center gap-3 text-[15px] font-medium text-white/80">
+                        <span className="flex h-6 w-6 items-center justify-center rounded-full bg-radar-400/15 text-radar-300">
+                          <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                        </span>
+                        {p}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                <p className="flex items-center gap-3 text-sm font-bold text-radar-300">
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full border border-radar-400/40 text-xs">{i + 1}</span>
-                  {s.tag}
-                </p>
-                <h3 className="mt-5 text-balance text-[2.1rem] font-bold leading-[1.05] tracking-[-0.035em] sm:text-5xl">{s.title}</h3>
-                <p className="mt-5 max-w-lg text-pretty text-lg leading-relaxed text-white/60">{s.body}</p>
-                <ul className="mt-7 space-y-3">
-                  {s.points.map((p) => (
-                    <li key={p} className="flex items-center gap-3 text-[15px] font-medium text-white/80">
-                      <span className="flex h-6 w-6 items-center justify-center rounded-full bg-radar-400/15 text-radar-300">
-                        <Check className="h-3.5 w-3.5" strokeWidth={3} />
-                      </span>
-                      {p}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+              ))}
+            </div>
+            {/* carousel position */}
+            <div className="mt-6 flex items-center justify-center gap-2 lg:hidden">
+              {STEPS.map((s, i) => (
+                <button
+                  key={s.tag}
+                  type="button"
+                  onClick={() => goTo(i)}
+                  aria-label={`Show ${s.tag}`}
+                  aria-current={slide === i}
+                  className="flex h-8 w-8 items-center justify-center"
+                >
+                  <span className={cn('h-2 rounded-full transition-all duration-300', slide === i ? 'w-6 bg-radar-400' : 'w-2 bg-white/20')} />
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

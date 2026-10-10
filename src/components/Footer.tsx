@@ -36,10 +36,10 @@ const COLS: [string, [string, string][]][] = [
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden pt-20">
+    <footer className="relative overflow-hidden pt-14 sm:pt-20">
       <div className="hairline absolute inset-x-0 top-0 h-px" />
-      <div className="wrap grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.5fr_1fr_1fr_1fr]">
-        <div>
+      <div className="wrap grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12">
+        <div className="col-span-2 sm:col-span-3 lg:col-span-1">
           <a href="#top" className="flex items-center gap-2.5" aria-label="Be Alert — back to top">
             <LogoMark size={34} />
             <Wordmark />
@@ -62,7 +62,7 @@ export function Footer() {
         ))}
       </div>
 
-      <div className="wrap mt-16 flex flex-col items-start justify-between gap-3 border-t border-white/[0.07] py-7 text-[13px] text-white/60 sm:flex-row sm:items-center">
+      <div className="wrap mt-12 flex flex-col sm:mt-16 items-start justify-between gap-3 border-t border-white/[0.07] py-7 text-[13px] text-white/60 sm:flex-row sm:items-center">
         <p>© {new Date().getFullYear()} Be Alert. Made in Pakistan.</p>
         <p>In an emergency, always call 1122 or your local emergency number first.</p>
       </div>

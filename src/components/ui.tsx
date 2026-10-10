@@ -63,7 +63,7 @@ export function Phone({ src, alt, className, priority, style }: { src: string; a
               </span>
             </span>
           </div>
-          <img src={src} alt={alt} width={600} height={1299} loading={priority ? 'eager' : 'lazy'} decoding="async" className="block h-auto w-full" />
+          <img src={src} alt={alt} width={600} height={1299} loading={priority ? 'eager' : 'lazy'} {...({ fetchpriority: priority ? 'high' : 'auto' } as object)} decoding={priority ? 'sync' : 'async'} className="block h-auto w-full" />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/[0.07] via-transparent to-transparent" />
         </div>
       </div>

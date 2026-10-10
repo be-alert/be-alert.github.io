@@ -34,11 +34,11 @@ export function Hero() {
           </span>
         </div>
 
-        <h1 className="mx-auto mt-7 max-w-6xl animate-pop text-balance text-display font-bold [animation-delay:80ms]">
+        <h1 className="mx-auto mt-7 max-w-6xl animate-rise text-balance text-display font-bold [animation-delay:80ms]">
           Know what’s happening <span className="accent grad-text animate-shine pr-1">around you.</span>
         </h1>
 
-        <p className="mx-auto mt-7 max-w-2xl animate-pop text-pretty text-[17px] leading-relaxed text-white/60 [animation-delay:160ms] sm:text-lg">
+        <p className="mx-auto mt-7 max-w-2xl animate-rise text-pretty text-[17px] leading-relaxed text-white/60 [animation-delay:160ms] sm:text-lg">
           The moment it happens. Be Alert is your neighbourhood’s live radar — urgent alerts, blood requests, outages, traffic, jobs, rentals and trusted local services, all within{' '}
           <span className="font-semibold text-white">1 to 50 km</span> of wherever you are.
         </p>

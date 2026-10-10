@@ -17,7 +17,7 @@ const FAQ: [string, string][] = [
 export function Faq() {
   const [open, setOpen] = useState(0);
   return (
-    <section id="faq" className="relative py-24 sm:py-32">
+    <section id="faq" className="relative py-16 sm:py-24 lg:py-32">
       <div className="wrap grid gap-14 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div className="lg:sticky lg:top-32 lg:self-start">
           <Heading

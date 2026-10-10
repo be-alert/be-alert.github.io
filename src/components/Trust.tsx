@@ -19,7 +19,7 @@ const MODERATION = [
 
 export function Trust() {
   return (
-    <section id="safety" className="relative py-24 sm:py-32">
+    <section id="safety" className="relative py-16 sm:py-24 lg:py-32">
       <div className="wrap">
         <Heading
           kicker="Safety & privacy"
@@ -31,24 +31,24 @@ export function Trust() {
           lead="A local app only works when people feel safe using it. So privacy and moderation were designed in from day one — not added later."
         />
 
-        <div className="mt-16 grid gap-4 lg:grid-cols-3">
+        <div className="mt-12 grid gap-3 sm:mt-16 sm:gap-4 lg:grid-cols-3">
           {MODERATION.map((m, i) => (
-            <Reveal key={m.title} delay={i * 90} className="relative overflow-hidden rounded-[28px] border border-radar-400/20 bg-gradient-to-b from-radar-400/[0.07] to-transparent p-7">
+            <Reveal key={m.title} delay={i * 90} className="relative overflow-hidden rounded-[28px] border border-radar-400/20 bg-gradient-to-b from-radar-400/[0.07] to-transparent p-6 sm:p-7">
               <m.icon className="h-7 w-7 text-radar-300" />
-              <h3 className="mt-6 text-xl font-bold tracking-[-0.02em]">{m.title}</h3>
+              <h3 className="mt-4 text-lg font-bold tracking-[-0.02em] sm:mt-6 sm:text-xl">{m.title}</h3>
               <p className="mt-2 leading-relaxed text-white/55">{m.body}</p>
             </Reveal>
           ))}
         </div>
 
-        <div className="mt-4 grid gap-px overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.08] sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-4 grid gap-px overflow-hidden rounded-[28px] border border-white/[0.08] bg-white/[0.08] grid-cols-2 lg:grid-cols-3">
           {PRIVACY.map((p, i) => (
-            <Reveal key={p.title} delay={(i % 3) * 80} className="bg-night p-7 transition hover:bg-night-1">
-              <span className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.04] text-white/85">
+            <Reveal key={p.title} delay={(i % 3) * 80} className="bg-night p-4 transition hover:bg-night-1 sm:p-7">
+              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-white/85 sm:h-11 sm:w-11 sm:rounded-2xl">
                 <p.icon className="h-5 w-5" />
               </span>
-              <h3 className="mt-5 font-bold">{p.title}</h3>
-              <p className="mt-1.5 text-[14.5px] leading-relaxed text-white/50">{p.body}</p>
+              <h3 className="mt-4 text-[14.5px] font-bold leading-tight sm:mt-5 sm:text-base">{p.title}</h3>
+              <p className="mt-1.5 text-[13px] leading-relaxed text-white/50 sm:text-[14.5px]">{p.body}</p>
             </Reveal>
           ))}
         </div>

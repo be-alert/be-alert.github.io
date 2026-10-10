@@ -42,7 +42,7 @@ const CARDS = [
 
 export function Why() {
   return (
-    <section id="why" className="relative py-24 sm:py-32">
+    <section id="why" className="relative py-16 sm:py-24 lg:py-32">
       <div className="wrap">
         <Heading
           center

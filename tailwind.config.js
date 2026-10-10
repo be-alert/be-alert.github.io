@@ -35,6 +35,8 @@ export default {
         blink: { '0%,100%': { opacity: '1' }, '50%': { opacity: '0.3' } },
         pop: { '0%': { opacity: '0', transform: 'translateY(10px) scale(0.96)' }, '100%': { opacity: '1', transform: 'none' } },
         shine: { to: { backgroundPosition: '200% center' } },
+        // movement only: the headline is visible from the first frame (fast Largest Contentful Paint)
+        rise: { '0%': { transform: 'translateY(14px)' }, '100%': { transform: 'none' } },
       },
       animation: {
         sweep: 'sweep 5s linear infinite',
@@ -45,6 +47,7 @@ export default {
         blink: 'blink 1.8s ease-in-out infinite',
         pop: 'pop 0.7s cubic-bezier(0.16, 1, 0.3, 1) both',
         shine: 'shine 6s linear infinite',
+        rise: 'rise 0.8s cubic-bezier(0.16, 1, 0.3, 1) both',
       },
     },
   },

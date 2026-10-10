@@ -42,7 +42,7 @@ const CATS: Cat[] = [
 
 export function Categories() {
   return (
-    <section id="categories" className="relative py-24 sm:py-32">
+    <section id="categories" className="relative py-16 sm:py-24 lg:py-32">
       <div className="wrap">
         <div className="flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-end">
           <Heading
@@ -58,20 +58,20 @@ export function Categories() {
           </Reveal>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-7">
+        <div className="mt-12 grid grid-cols-3 gap-2.5 sm:mt-16 sm:gap-3 lg:grid-cols-7">
           {CATS.map((c, i) => (
             <Reveal key={c.name} delay={(i % 7) * 50}>
               <div
-                className="group relative h-full overflow-hidden rounded-[22px] border border-white/[0.07] bg-white/[0.025] p-4 transition duration-500 hover:-translate-y-1 hover:border-white/15 sm:p-5"
+                className="group relative h-full overflow-hidden rounded-[18px] border border-white/[0.07] bg-white/[0.025] p-3.5 transition duration-500 hover:-translate-y-1 hover:border-white/15 sm:rounded-[22px] sm:p-5"
                 style={{ ['--c' as string]: c.rgb }}
               >
                 <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full opacity-0 blur-2xl transition duration-500 group-hover:opacity-100" style={{ background: `rgb(${c.rgb} / 0.35)` }} />
-                <span className="relative flex h-11 w-11 items-center justify-center rounded-2xl" style={{ background: `rgb(${c.rgb} / 0.14)`, color: `rgb(${c.rgb})` }}>
+                <span className="relative flex h-10 w-10 items-center justify-center rounded-xl sm:h-11 sm:w-11 sm:rounded-2xl" style={{ background: `rgb(${c.rgb} / 0.14)`, color: `rgb(${c.rgb})` }}>
                   <c.icon className="h-5 w-5" />
                 </span>
-                <p className="relative mt-5 font-bold tracking-[-0.01em]">{c.name}</p>
-                <p className="relative mt-1 text-[13px] leading-snug text-white/45">{c.line}</p>
-                {c.urgent && <span className="relative mt-3 inline-block rounded-full bg-alert-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-alert-300">Urgent</span>}
+                <p className="relative mt-3.5 text-[13.5px] font-bold leading-tight tracking-[-0.01em] sm:mt-5 sm:text-base">{c.name}</p>
+                <p className="relative mt-1 hidden text-[13px] leading-snug text-white/45 sm:block">{c.line}</p>
+                {c.urgent && <span className="relative mt-2 inline-block rounded-full sm:mt-3 bg-alert-500/15 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-alert-300">Urgent</span>}
               </div>
             </Reveal>
           ))}
@@ -94,7 +94,7 @@ export function EmergencySpotlight() {
       <div className="wrap">
         <Reveal className="relative overflow-hidden rounded-[40px] border border-alert-500/25 bg-[radial-gradient(120%_120%_at_0%_0%,rgb(255_77_85/0.28),transparent_55%),linear-gradient(180deg,#140a10,#0b0710)] p-7 sm:p-12 lg:p-16">
           <div className="bg-dots pointer-events-none absolute inset-0 opacity-50 [mask-image:radial-gradient(ellipse_at_80%_50%,black,transparent_70%)]" />
-          <div className="relative grid items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
+          <div className="relative grid items-center gap-9 sm:gap-12 lg:grid-cols-[1.1fr_0.9fr]">
             <div>
               <span className="kicker border-alert-500/30 bg-alert-500/10 text-alert-300">
                 <Siren className="h-3.5 w-3.5" /> Emergency
@@ -126,16 +126,18 @@ export function EmergencySpotlight() {
             </div>
 
             <div className="relative mx-auto flex w-full max-w-sm flex-col items-center">
-              <div className="relative flex h-56 w-56 items-center justify-center">
+              <div className="relative flex h-44 w-44 items-center justify-center sm:h-56 sm:w-56">
                 <span className="absolute inset-0 animate-ripple rounded-full border-2 border-alert-400/50" />
                 <span className="absolute inset-0 animate-ripple rounded-full border-2 border-alert-400/40 [animation-delay:1.3s]" />
                 <span className="absolute inset-0 animate-ripple rounded-full border-2 border-alert-400/30 [animation-delay:2.6s]" />
-                <span className="flex h-40 w-40 flex-col items-center justify-center rounded-full bg-gradient-to-b from-alert-400 to-alert-600 shadow-[0_30px_80px_-10px_rgb(255_77_85/0.7),inset_0_2px_0_rgb(255_255_255/0.3)]">
-                  <Siren className="h-10 w-10" />
-                  <span className="mt-1 text-2xl font-extrabold tracking-tight">SOS</span>
+                {/* mirrors the app's emergency screen, whose main button calls Rescue 1122 */}
+                <span className="flex h-32 w-32 flex-col items-center justify-center rounded-full bg-gradient-to-b from-alert-400 to-alert-600 shadow-[0_30px_80px_-10px_rgb(255_77_85/0.7),inset_0_2px_0_rgb(255_255_255/0.3)] sm:h-40 sm:w-40">
+                  <Phone className="h-8 w-8 sm:h-9 sm:w-9" />
+                  <span className="mt-1 text-xl font-extrabold tracking-tight sm:text-2xl">1122</span>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.16em] text-white/80">Call</span>
                 </span>
               </div>
-              <div className="mt-10 grid w-full grid-cols-4 gap-2">
+              <div className="mt-7 grid w-full grid-cols-4 gap-2 sm:mt-10">
                 {NUMBERS.map(([n, l]) => (
                   <div key={n} className={cn('rounded-2xl border border-white/10 bg-white/[0.04] py-3 text-center')}>
                     <div className="text-lg font-extrabold tracking-tight">{n}</div>
