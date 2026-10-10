@@ -6,7 +6,7 @@ const FAQ: [string, string][] = [
   ['Is Be Alert free?', 'Yes — free to download and use, with no ads.'],
   ['Where does it work?', 'Anywhere. Be Alert opens on your current location, so it works in any city — Karachi, Lahore, Islamabad and beyond, and abroad too. You can also pick any city or country by hand.'],
   ['Do I need an account just to look around?', 'No. You can see what’s happening nearby without signing in. An account is only needed to post, comment, vote or report.'],
-  ['How do I sign in?', 'With your Gmail or any email address. We send a one-time sign-in link — there’s no password to create or remember.'],
+  ['How do I sign in?', 'With your Gmail or any email address — either with a password, or with a 6-digit code we email you. The code works even if your email is open on a different device: just read it and type it into the app.'],
   ['Are the Android app and the web app connected?', 'Yes. They share one account and one live database, so anything you do on one shows up on the other automatically.'],
   ['Is there an iPhone app?', 'Not yet. iPhone users can use the full web app in Safari — same features, same account.'],
   ['How are fake posts and scams handled?', 'Anyone can report a post. Posts reported by several established accounts are hidden automatically, moderators review every report, and accounts that break the rules are suspended.'],
