@@ -9,7 +9,15 @@ const { render } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js'
 const file = resolve('dist/index.html');
 const html = readFileSync(file, 'utf8');
 if (!html.includes('<div id="root"></div>')) throw new Error('root placeholder not found in dist/index.html');
-writeFileSync(file, html.replace('<div id="root"></div>', `<div id="root">${render()}</div>`));
+let out = html.replace('<div id="root"></div>', `<div id="root">${render()}</div>`);
+
+// Inline the stylesheet (~10 KB gzipped): saves a network round trip before the first paint on
+// slow mobile connections. Its url(../x) references are rewritten to be relative to the page.
+const link = out.match(/<link rel="stylesheet"[^>]*href="\.\/(assets\/[^"]+\.css)"[^>]*>/);
+if (!link) throw new Error('stylesheet link not found in dist/index.html');
+const css = readFileSync(resolve('dist', link[1]), 'utf8').replace(/url\(\.\.\//g, 'url(./');
+out = out.replace(link[0], () => `<style>${css}</style>`);
+writeFileSync(file, out);
 
 writeFileSync(
   resolve('dist/sitemap.xml'),
