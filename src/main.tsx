@@ -1,4 +1,4 @@
-import { StrictMode } from 'react';
+import { StrictMode, startTransition } from 'react';
 import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from './App';
 import './index.css';
@@ -11,7 +11,8 @@ const app = (
 );
 
 // Production pages are prerendered (scripts/prerender.mjs): attach to that HTML instead of redrawing it.
-if (root.hasChildNodes()) hydrateRoot(root, app);
+// startTransition lets React hydrate in small slices, so a slow phone stays responsive meanwhile.
+if (root.hasChildNodes()) startTransition(() => void hydrateRoot(root, app));
 else createRoot(root).render(app);
 
 const startMotion = () => {

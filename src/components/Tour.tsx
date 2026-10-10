@@ -55,7 +55,10 @@ export function Tour() {
 
   function goTo(i: number) {
     const el = refs.current[i];
-    track.current?.scrollTo({ left: el ? el.offsetLeft - (track.current.offsetWidth - el.offsetWidth) / 2 : 0, behavior: 'smooth' });
+    const t = track.current;
+    if (!el || !t) return;
+    // centre card i inside the track (both are measured from the same offset parent)
+    t.scrollTo({ left: el.offsetLeft - t.offsetLeft - (t.clientWidth - el.offsetWidth) / 2, behavior: 'smooth' });
   }
 
   useEffect(() => {
