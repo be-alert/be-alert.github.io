@@ -10,7 +10,7 @@ const FAQ: [string, string][] = [
   ['Are the Android app and the web app connected?', 'Yes. They share one account and one live database, so anything you do on one shows up on the other automatically.'],
   ['Is there an iPhone app?', 'Not yet. iPhone users can use the full web app in Safari — same features, same account.'],
   ['How are fake posts and scams handled?', 'Anyone can report a post. Posts reported by several established accounts are hidden automatically, moderators review every report, and accounts that break the rules are suspended.'],
-  ['What does the verified badge mean?', 'Businesses and service providers can verify their identity with their CNIC. A moderator checks it before the badge appears.'],
+  ['What does the verified badge mean?', 'Anyone offering services, tutoring, domestic help, rentals, jobs or shop deals must verify first: a photo of their CNIC and a selfie, checked by a moderator. The photos are deleted right after the check. Everyone else can use Be Alert without a CNIC.'],
   ['Is Be Alert an emergency service?', 'No. In an emergency always call 1122, 15 or your local emergency number first. Be Alert helps you reach them faster and alert the people around you.'],
 ];
 

@@ -13,7 +13,7 @@ const PRIVACY: { icon: LucideIcon; title: string; body: string }[] = [
 
 const MODERATION = [
   { icon: Flag, title: 'Report anything', body: 'Every post has a report button. Three reports from established accounts hide it automatically.' },
-  { icon: BadgeCheck, title: 'Verified badges', body: 'Businesses and service providers verify with their CNIC, checked by our moderators.' },
+  { icon: BadgeCheck, title: 'Verified badges', body: 'Service providers, tutors, rentals and businesses verify with a CNIC photo and selfie, checked by our moderators.' },
   { icon: ShieldCheck, title: 'Real moderators', body: 'A moderation team reviews reports, suspends abusers and keeps a permanent audit trail.' },
 ];
 
