@@ -11,6 +11,7 @@ const FAQ: [string, string][] = [
   ['Is there an iPhone app?', 'Not yet. iPhone users can use the full web app in Safari — same features, same account.'],
   ['How are fake posts and scams handled?', 'Anyone can report a post. Posts reported by several established accounts are hidden automatically, moderators review every report, and accounts that break the rules are suspended.'],
   ['What does the verified badge mean?', 'Anyone offering services, tutoring, domestic help, rentals, jobs or shop deals must verify first: a photo of their CNIC and a selfie, checked by a moderator. The photos are deleted right after the check. Everyone else can use Be Alert without a CNIC.'],
+  ['Who can offer rides?', 'Only verified drivers. To post in Carpool & Rideshare you add your driving licence (a photo and a selfie holding it); a moderator checks it, and riders see a “Verified driver” badge. The photos are deleted after the check, and the badge ends when the licence expires.'],
   ['Is Be Alert an emergency service?', 'No. In an emergency always call 1122, 15 or your local emergency number first. Be Alert helps you reach them faster and alert the people around you.'],
 ];
 
