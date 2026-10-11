@@ -4,14 +4,14 @@
  */
 export const LINKS = {
   /** The Be Alert web app (the actual product in the browser). */
-  webApp: 'https://razachaudhary5512-a11y.github.io/smart-radar/',
+  webApp: 'https://be-alert.github.io/app/',
   /** Android app. Switch to the Play Store listing once published:
    *  https://play.google.com/store/apps/details?id=com.bealert.app */
-  android: 'https://github.com/razachaudhary5512-a11y/smart-radar/releases/latest/download/BeAlert.apk',
+  android: 'https://github.com/be-alert/app/releases/latest/download/BeAlert.apk',
   /** True once `android` points to Google Play (changes the button wording). */
   androidOnPlay: false,
   /** Owner / admin management console (inside the web app). */
-  ownerConsole: 'https://razachaudhary5512-a11y.github.io/smart-radar/admin/dashboard',
-  privacy: 'https://razachaudhary5512-a11y.github.io/smart-radar/privacy',
-  terms: 'https://razachaudhary5512-a11y.github.io/smart-radar/terms',
+  ownerConsole: 'https://be-alert.github.io/app/admin/dashboard',
+  privacy: 'https://be-alert.github.io/app/privacy',
+  terms: 'https://be-alert.github.io/app/terms',
 } as const;

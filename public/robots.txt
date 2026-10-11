@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://razachaudhary5512-a11y.github.io/sitemap.xml
+Sitemap: https://be-alert.github.io/sitemap.xml
