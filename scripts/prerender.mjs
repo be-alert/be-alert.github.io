@@ -4,7 +4,7 @@ import { readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { resolve } from 'node:path';
 
-const SITE = 'https://be-alert.github.io/';
+const SITE = 'https://bealert.online/';
 const { render } = await import(pathToFileURL(resolve('dist-ssr/entry-server.js')).href);
 const file = resolve('dist/index.html');
 const html = readFileSync(file, 'utf8');

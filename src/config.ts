@@ -4,14 +4,14 @@
  */
 export const LINKS = {
   /** The Be Alert web app (the actual product in the browser). */
-  webApp: 'https://be-alert.github.io/app/',
+  webApp: 'https://app.bealert.online/',
   /** Android app. Switch to the Play Store listing once published:
    *  https://play.google.com/store/apps/details?id=com.bealert.app */
-  android: 'https://github.com/be-alert/app/releases/latest/download/BeAlert.apk',
+  android: 'https://bealert.online/download',
   /** True once `android` points to Google Play (changes the button wording). */
   androidOnPlay: false,
   /** Owner / admin management console (inside the web app). */
-  ownerConsole: 'https://be-alert.github.io/app/admin/dashboard',
-  privacy: 'https://be-alert.github.io/app/privacy',
-  terms: 'https://be-alert.github.io/app/terms',
+  ownerConsole: 'https://app.bealert.online/admin/dashboard',
+  privacy: 'https://app.bealert.online/privacy',
+  terms: 'https://app.bealert.online/terms',
 } as const;
