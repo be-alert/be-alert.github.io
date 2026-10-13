@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://be-alert.github.io/sitemap.xml
+Sitemap: https://bealert.online/sitemap.xml
