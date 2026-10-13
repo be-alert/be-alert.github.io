@@ -3,6 +3,17 @@ import { createRoot, hydrateRoot } from 'react-dom/client';
 import { App } from './App';
 import './index.css';
 
+// Never run inside another site's frame (clickjacking): GitHub Pages can't send frame-ancestors.
+const framed = window.self !== window.top;
+if (framed) {
+  document.documentElement.style.display = 'none';
+  try {
+    window.top!.location.replace(window.location.href);
+  } catch {
+    /* sandboxed frame: stay blank */
+  }
+}
+
 const root = document.getElementById('root')!;
 const app = (
   <StrictMode>
@@ -12,7 +23,9 @@ const app = (
 
 // Production pages are prerendered (scripts/prerender.mjs): attach to that HTML instead of redrawing it.
 // startTransition lets React hydrate in small slices, so a slow phone stays responsive meanwhile.
-if (root.hasChildNodes()) startTransition(() => void hydrateRoot(root, app));
+if (framed) {
+  /* nothing to show */
+} else if (root.hasChildNodes()) startTransition(() => void hydrateRoot(root, app));
 else createRoot(root).render(app);
 
 const startMotion = () => {
