@@ -14,4 +14,8 @@ export const LINKS = {
   ownerConsole: 'https://app.bealert.online/admin/dashboard',
   privacy: 'https://app.bealert.online/privacy',
   terms: 'https://app.bealert.online/terms',
+  /** Social profiles and WhatsApp (shown in the footer and the floating chat button). */
+  facebook: 'https://www.facebook.com/profile.php?id=61595424180866',
+  instagram: 'https://www.instagram.com/bealert.online/',
+  whatsapp: 'https://wa.me/923395512912?text=' + encodeURIComponent('Hi Be Alert!'),
 } as const;

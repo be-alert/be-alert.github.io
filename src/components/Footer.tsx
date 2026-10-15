@@ -1,4 +1,5 @@
 import { LINKS } from '../config';
+import { SocialLinks } from './Social';
 import { GetButtons, LogoMark, QrCode, RadarRings, Reveal, Wordmark } from './ui';
 
 export function FinalCta() {
@@ -32,19 +33,21 @@ const COLS: [string, [string, string][]][] = [
   ['Product', [['Why Be Alert', '#why'], ['Tour', '#tour'], ['Categories', '#categories'], ['Safety', '#safety'], ['FAQ', '#faq']]],
   ['Get Be Alert', [['Android app', LINKS.android], ['Web app', LINKS.webApp], ['Owner Console', LINKS.ownerConsole]]],
   ['Legal', [['Privacy Policy', LINKS.privacy], ['Terms of Use', LINKS.terms]]],
+  ['Contact', [['WhatsApp', LINKS.whatsapp], ['Facebook', LINKS.facebook], ['Instagram', LINKS.instagram]]],
 ];
 
 export function Footer() {
   return (
     <footer className="relative overflow-hidden pt-14 sm:pt-20">
       <div className="hairline absolute inset-x-0 top-0 h-px" />
-      <div className="wrap grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-[1.5fr_1fr_1fr_1fr] lg:gap-12">
-        <div className="col-span-2 sm:col-span-3 lg:col-span-1">
+      <div className="wrap grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-4 lg:grid-cols-[1.5fr_1fr_1fr_1fr_1fr] lg:gap-12">
+        <div className="col-span-2 sm:col-span-4 lg:col-span-1">
           <a href="#top" className="flex items-center gap-2.5" aria-label="Be Alert — back to top">
             <LogoMark size={34} />
             <Wordmark />
           </a>
           <p className="mt-5 max-w-xs leading-relaxed text-white/50">Your neighbourhood, live. Alerts, help and local life within 1–50 km of you.</p>
+          <SocialLinks className="mt-6" />
         </div>
         {COLS.map(([title, links]) => (
           <div key={title}>

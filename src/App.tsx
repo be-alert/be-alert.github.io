@@ -4,6 +4,7 @@ import { Faq } from './components/Faq';
 import { FinalCta, Footer } from './components/Footer';
 import { Hero } from './components/Hero';
 import { Nav } from './components/Nav';
+import { WhatsAppButton } from './components/Social';
 import { Tour } from './components/Tour';
 import { Trust } from './components/Trust';
 import { Facts, Why } from './components/Why';
@@ -28,6 +29,7 @@ export function App() {
         <FinalCta />
       </main>
       <Footer />
+      <WhatsAppButton />
     </>
   );
 }
