@@ -2,7 +2,6 @@ import { useEffect, useId, useRef, useState, type CSSProperties, type ReactNode 
 import { ArrowUpRight, Globe } from 'lucide-react';
 import QRCode from 'qrcode';
 import { LINKS } from '../config';
-import { Icon } from './Social';
 
 export function cn(...c: (string | false | null | undefined)[]) {
   return c.filter(Boolean).join(' ');
@@ -146,7 +145,6 @@ function AndroidGlyph({ className }: { className?: string }) {
 
 /** The two primary actions used across the site. */
 export function GetButtons({ className, center }: { className?: string; center?: boolean }) {
-  if (!LINKS.launched) return <SoonButtons className={className} center={center} />;
   return (
     <div className={cn('flex flex-col gap-3 sm:flex-row', center && 'items-center justify-center', className)}>
       <a href={LINKS.android} className="btn-white w-full sm:w-auto" rel="noopener">
@@ -166,26 +164,6 @@ export function GetButtons({ className, center }: { className?: string; center?:
 }
 
 /** QR code (generated in the browser from the configured Android link). */
-/** Pre-launch call to action: follow on Instagram + get a WhatsApp message at launch. */
-export function SoonButtons({ className, center }: { className?: string; center?: boolean }) {
-  return (
-    <div className={cn('flex flex-col gap-3 sm:flex-row', center && 'items-center justify-center', className)}>
-      <a href={LINKS.instagram} target="_blank" rel="noopener" className="btn-white w-full sm:w-auto">
-        <Icon name="instagram" className="h-5 w-5 text-[#2a45d6]" />
-        <span className="flex flex-col items-start leading-none">
-          <span className="text-[10px] font-semibold uppercase tracking-[0.12em] text-night/55">Launching soon</span>
-          <span className="mt-0.5 text-[15px]">Follow for updates</span>
-        </span>
-      </a>
-      <a href={LINKS.notify} target="_blank" rel="noopener" className="btn-glass group w-full sm:w-auto">
-        <Icon name="whatsapp" className="h-[18px] w-[18px] text-[#25D366]" />
-        Notify me on WhatsApp
-        <ArrowUpRight className="h-4 w-4 opacity-60 transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:opacity-100" />
-      </a>
-    </div>
-  );
-}
-
 export function QrCode({ value, size = 132 }: { value: string; size?: number }) {
   const [svg, setSvg] = useState('');
   useEffect(() => {

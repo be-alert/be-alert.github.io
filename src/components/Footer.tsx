@@ -14,13 +14,13 @@ export function FinalCta() {
                 Be the first to know. <span className="accent grad-text">Be the first to help.</span>
               </h2>
               <p className="mx-auto mt-6 max-w-xl text-lg leading-relaxed text-white/65 lg:mx-0">
-                {LINKS.launched ? 'Join your neighbours on Be Alert — free on Android and in your browser.' : 'Be Alert is launching soon — free on Android and in your browser. Follow us to be the first to know.'}
+                Join your neighbours on Be Alert — free on Android and in your browser.
               </p>
               <GetButtons className="mt-10 justify-center lg:justify-start" />
             </div>
             <div className="mx-auto hidden flex-col items-center gap-4 rounded-[32px] border border-white/10 bg-white/[0.04] p-6 backdrop-blur sm:flex">
-              <QrCode value={LINKS.launched ? LINKS.android : LINKS.instagram} size={150} />
-              <p className="max-w-[190px] text-center text-sm font-semibold text-white/70">{LINKS.launched ? 'Scan with your phone camera to get the Android app' : 'Scan with your phone camera to follow us on Instagram'}</p>
+              <QrCode value={LINKS.android} size={150} />
+              <p className="max-w-[190px] text-center text-sm font-semibold text-white/70">Scan with your phone camera to get the Android app</p>
             </div>
           </div>
         </Reveal>
@@ -31,7 +31,7 @@ export function FinalCta() {
 
 const COLS: [string, [string, string][]][] = [
   ['Product', [['Why Be Alert', '#why'], ['Tour', '#tour'], ['Categories', '#categories'], ['Safety', '#safety'], ['FAQ', '#faq']]],
-  ['Get Be Alert', LINKS.launched ? [['Android app', LINKS.android], ['Web app', LINKS.webApp], ['Owner Console', LINKS.ownerConsole]] : [['Launching soon', '#top'], ['Get notified', LINKS.notify], ['Owner Console', LINKS.ownerConsole]]],
+  ['Get Be Alert', [['Android app', LINKS.android], ['Web app', LINKS.webApp], ['Owner Console', LINKS.ownerConsole]]],
   ['Legal', [['Privacy Policy', LINKS.privacy], ['Terms of Use', LINKS.terms]]],
   ['Contact', [['WhatsApp', LINKS.whatsapp], ['Facebook', LINKS.facebook], ['Instagram', LINKS.instagram]]],
 ];

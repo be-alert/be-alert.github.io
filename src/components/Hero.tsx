@@ -1,6 +1,5 @@
 import { useMemo } from 'react';
 import { CalendarHeart, Construction, Droplet, Wrench, Zap, type LucideIcon } from 'lucide-react';
-import { LINKS } from '../config';
 import { GetButtons, Phone, RadarRings, cn } from './ui';
 
 type Ping = { icon: LucideIcon; color: string; ring: string; title: string; meta: string; x: number; y: number; side: 'left' | 'right'; delay: number; mobile?: boolean };
@@ -31,7 +30,7 @@ export function Hero() {
               <span className="absolute inset-0 animate-ping rounded-full bg-radar-400" />
               <span className="relative h-2 w-2 rounded-full bg-radar-400" />
             </span>
-            {LINKS.launched ? 'Live on Android & the web · Free' : 'Launching soon · Free'}
+            Live on Android & the web · Free
           </span>
         </div>
 
