@@ -69,11 +69,11 @@ export function Nav() {
         </div>
 
         <div className="hidden items-center gap-1.5 lg:flex">
-          <a href={LINKS.webApp} target="_blank" rel="noopener" className="rounded-full px-4 py-2 text-[14px] font-semibold text-white/70 transition hover:text-white">
+          {LINKS.launched && <a href={LINKS.webApp} target="_blank" rel="noopener" className="rounded-full px-4 py-2 text-[14px] font-semibold text-white/70 transition hover:text-white">
             Web app
-          </a>
-          <a href={LINKS.android} className="group inline-flex h-11 items-center gap-2 rounded-full bg-white pl-5 pr-4 text-[14px] font-bold text-night transition hover:shadow-[0_10px_30px_-8px_rgb(255_255_255/0.5)]">
-            Get the app <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
+          </a>}
+          <a href={LINKS.launched ? LINKS.android : LINKS.instagram} {...(LINKS.launched ? {} : { target: '_blank', rel: 'noopener' })} className="group inline-flex h-11 items-center gap-2 rounded-full bg-white pl-5 pr-4 text-[14px] font-bold text-night transition hover:shadow-[0_10px_30px_-8px_rgb(255_255_255/0.5)]">
+            {LINKS.launched ? 'Get the app' : 'Coming soon · Follow'} <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
           </a>
         </div>
 
@@ -100,8 +100,17 @@ export function Nav() {
           </a>
         ))}
         <div className="mt-2 grid gap-2 border-t border-white/10 pt-3">
-          <a href={LINKS.android} className="btn-white">Get the Android app</a>
-          <a href={LINKS.webApp} target="_blank" rel="noopener" className="btn-glass">Open the web app</a>
+          {LINKS.launched ? (
+            <>
+              <a href={LINKS.android} className="btn-white">Get the Android app</a>
+              <a href={LINKS.webApp} target="_blank" rel="noopener" className="btn-glass">Open the web app</a>
+            </>
+          ) : (
+            <>
+              <a href={LINKS.instagram} target="_blank" rel="noopener" className="btn-white">Launching soon · Follow us</a>
+              <a href={LINKS.notify} target="_blank" rel="noopener" className="btn-glass">Notify me on WhatsApp</a>
+            </>
+          )}
         </div>
       </div>
     </header>

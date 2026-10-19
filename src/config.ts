@@ -8,6 +8,10 @@ export const LINKS = {
   /** Android app. Switch to the Play Store listing once published:
    *  https://play.google.com/store/apps/details?id=com.bealert.app */
   android: 'https://bealert.online/download',
+  /** False = pre-launch: download buttons become "Launching soon" + follow/notify links. */
+  launched: false,
+  /** WhatsApp chat pre-filled to ask for a launch alert. */
+  notify: 'https://wa.me/923395512912?text=' + encodeURIComponent('Hi! Please let me know when Be Alert launches.'),
   /** True once `android` points to Google Play (changes the button wording). */
   androidOnPlay: false,
   /** Owner / admin management console (inside the web app). */
